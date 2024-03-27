@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+<div class="sm:ml-72 mt-10">
+    <div class="flex justify-between items-center">
+        <h1 class="text-bold text-3xl mb-10">Client index</h1>
+        <a href="{{ path('app_client_new') }}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-20 rounded mb-10">Create new</button></a>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mr-20">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">Nom</th>
+                    <th scope="col" class="px-6 py-3">Email</th>
+                    <th scope="col" class="px-6 py-3">Telephone</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">{{ client.nom }} {{ client.prenom }}</td>
+                        <td class="px-6 py-4">{{ client.email }}</td>
+                        <td class="px-6 py-4">{{ client.telephone }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="flex justify-center">
+                        <td class="px-6 py-4" colspan="6">No records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

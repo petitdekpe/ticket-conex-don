@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+        <style>
+        body{
+            background-color: white;
+        }
+        </style>
+        {% block stylesheets %}
+        <style>
+        /* Pour les libellés des mois */
+        .fc-toolbar-title, .fc-col-header-cell-cushion {
+            text-transform: capitalize;
+        }
+        </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        
+            <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                </svg>
+            </button>
+
+            <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                <ul class="space-y-2 font-medium">
+                    <li class="flex items-center justify-center mb-10">
+                        <img src="/images/logo.png" class="h-24" alt="Logo">
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1316_14827)">
+                            <path d="M3 0.75H21C21 0.75 22.5 0.75 22.5 2.25V21.75C22.5 21.75 22.5 23.25 21 23.25H3C3 23.25 1.5 23.25 1.5 21.75V2.25C1.5 2.25 1.5 0.75 3 0.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 0.75V3.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 7.25V11.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 20.25V23.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 5.5C10 5.96413 9.81563 6.40925 9.48744 6.73744C9.15925 7.06563 8.71413 7.25 8.25 7.25H6.75C6.28587 7.25 5.84075 7.06563 5.51256 6.73744C5.18437 6.40925 5 5.96413 5 5.5C5 5.03587 5.18437 4.59075 5.51256 4.26256C5.84075 3.93437 6.28587 3.75 6.75 3.75H8.25C8.71413 3.75 9.15925 3.93437 9.48744 4.26256C9.81563 4.59075 10 5.03587 10 5.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 13.5C10 13.9641 9.81563 14.4092 9.48744 14.7374C9.15925 15.0656 8.71413 15.25 8.25 15.25H6.75C6.28587 15.25 5.84075 15.0656 5.51256 14.7374C5.18437 14.4092 5 13.9641 5 13.5C5 13.0359 5.18437 12.5908 5.51256 12.2626C5.84075 11.9344 6.28587 11.75 6.75 11.75H8.25C8.71413 11.75 9.15925 11.9344 9.48744 12.2626C9.81563 12.5908 10 13.0359 10 13.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 18.5C10 18.9641 9.81563 19.4092 9.48744 19.7374C9.15925 20.0656 8.71413 20.25 8.25 20.25H6.75C6.28587 20.25 5.84075 20.0656 5.51256 19.7374C5.18437 19.4092 5 18.9641 5 18.5C5 18.0359 5.18437 17.5908 5.51256 17.2626C5.84075 16.9344 6.28587 16.75 6.75 16.75H8.25C8.71413 16.75 9.15925 16.9344 9.48744 17.2626C9.81563 17.5908 10 18.0359 10 18.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.5 23.25V20.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.5 16.75V12.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.5 3.75V0.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19 18.5C19 18.0359 18.8156 17.5908 18.4874 17.2626C18.1592 16.9344 17.7141 16.75 17.25 16.75H15.75C15.2859 16.75 14.8408 16.9344 14.5126 17.2626C14.1844 17.5908 14 18.0359 14 18.5C14 18.9641 14.1844 19.4092 14.5126 19.7374C14.8408 20.0656 15.2859 20.25 15.75 20.25H17.25C17.7141 20.25 18.1592 20.0656 18.4874 19.7374C18.8156 19.4092 19 18.9641 19 18.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19 10.5C19 10.0359 18.8156 9.59075 18.4874 9.26256C18.1592 8.93437 17.7141 8.75 17.25 8.75H15.75C15.2859 8.75 14.8408 8.93437 14.5126 9.26256C14.1844 9.59075 14 10.0359 14 10.5C14 10.9641 14.1844 11.4092 14.5126 11.7374C14.8408 12.0656 15.2859 12.25 15.75 12.25H17.25C17.7141 12.25 18.1592 12.0656 18.4874 11.7374C18.8156 11.4092 19 10.9641 19 10.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19 5.5C19 5.03587 18.8156 4.59075 18.4874 4.26256C18.1592 3.93437 17.7141 3.75 17.25 3.75H15.75C15.2859 3.75 14.8408 3.93437 14.5126 4.26256C14.1844 4.59075 14 5.03587 14 5.5C14 5.96413 14.1844 6.40925 14.5126 6.73744C14.8408 7.06563 15.2859 7.25 15.75 7.25H17.25C17.7141 7.25 18.1592 7.06563 18.4874 6.73744C18.8156 6.40925 19 5.96413 19 5.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.5 7.25V8.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 15.25V16.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_1316_14827">
+                            <rect width="24" height="24" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span class="ms-3">Tableau de bord</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_concert_index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1315_6321)">
+                                <path d="M16 2.625H19" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 1.125V4.125" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 7.875H22" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20.5 6.375V9.375" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.77301 6.37598C3.77301 6.96692 3.88941 7.55209 4.11555 8.09805C4.3417 8.64402 4.67317 9.14009 5.09103 9.55796C5.50889 9.97582 6.00497 10.3073 6.55093 10.5334C7.0969 10.7596 7.68206 10.876 8.27301 10.876C8.86396 10.876 9.44912 10.7596 9.99509 10.5334C10.5411 10.3073 11.0371 9.97582 11.455 9.55796C11.8729 9.14009 12.2043 8.64402 12.4305 8.09805C12.6566 7.55209 12.773 6.96692 12.773 6.37598C12.773 5.78503 12.6566 5.19987 12.4305 4.6539C12.2043 4.10794 11.8729 3.61186 11.455 3.194C11.0371 2.77613 10.5411 2.44466 9.99509 2.21852C9.44912 1.99237 8.86396 1.87598 8.27301 1.87598C7.68206 1.87598 7.0969 1.99237 6.55093 2.21852C6.00497 2.44466 5.50889 2.77613 5.09103 3.194C4.67317 3.61186 4.3417 4.10794 4.11555 4.6539C3.88941 5.19987 3.77301 5.78503 3.77301 6.37598Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.76099 4.61694L13.785 8.13594" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.05 10.5099L5.696 19.9199C5.54263 20.252 5.27319 20.5166 4.93838 20.664C4.60357 20.8113 4.22647 20.8312 3.878 20.7199L3.543 20.6129C3.19566 20.5018 2.90071 20.2679 2.71334 19.955C2.52597 19.6421 2.45902 19.2716 2.525 18.9129L4.425 8.72095" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.71201 20.666L2.79901 23.524" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.578 20.524C13.578 20.9486 13.7467 21.3558 14.0469 21.6561C14.3472 21.9563 14.7544 22.125 15.179 22.125C15.6036 22.125 16.0108 21.9563 16.3111 21.6561C16.6113 21.3558 16.78 20.9486 16.78 20.524C16.78 20.0994 16.6113 19.6921 16.3111 19.3919C16.0108 19.0916 15.6036 18.923 15.179 18.923C14.7544 18.923 14.3472 19.0916 14.0469 19.3919C13.7467 19.6921 13.578 20.0994 13.578 20.524Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22.75 18.798C22.75 19.1144 22.6561 19.4238 22.4803 19.6869C22.3045 19.95 22.0546 20.1551 21.7623 20.2762C21.4699 20.3973 21.1482 20.429 20.8378 20.3673C20.5275 20.3055 20.2424 20.1531 20.0186 19.9294C19.7949 19.7056 19.6425 19.4205 19.5807 19.1101C19.519 18.7998 19.5507 18.4781 19.6718 18.1857C19.7929 17.8933 19.998 17.6435 20.2611 17.4676C20.5242 17.2918 20.8335 17.198 21.15 17.198C21.3601 17.198 21.5682 17.2394 21.7623 17.3198C21.9564 17.4002 22.1328 17.5181 22.2814 17.6666C22.4299 17.8152 22.5478 17.9916 22.6282 18.1857C22.7086 18.3798 22.75 18.5879 22.75 18.798Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.78 20.524V14.524C16.78 14.2551 16.8646 13.9929 17.0218 13.7747C17.179 13.5565 17.4009 13.3932 17.656 13.308L21.064 12.437C21.2569 12.3728 21.4623 12.3553 21.6632 12.3861C21.8641 12.417 22.0549 12.4951 22.2196 12.6142C22.3843 12.7334 22.5183 12.89 22.6106 13.0711C22.7028 13.2523 22.7506 13.4528 22.75 13.656V18.798" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1315_6321">
+                                <rect width="24" height="24" fill="white" transform="translate(0.75 0.375)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Concerts</span>
+                        <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-white bg-blue-800">Pro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_billet_index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1315_3983)">
+                                <path d="M0.75 13.3788V14.8788H2.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.75 1.37878H6.75V7.37878H0.75V1.37878Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.25 1.37878H23.25V7.37878H17.25V1.37878Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.75 17.8788H6.75V23.8788H0.75V17.8788Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 1.37878H14.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.75 1.37878V4.37878H12" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.25 4.37878V7.37878H9.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.75 10.3788H6.75V11.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5.25 14.8788H6.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23.25 23.8788H20.25V20.8788H23.25V17.8788H20.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.25 23.8788H9.75V17.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.25 17.8788V23.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.75 17.8788H14.25V20.8788H12.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.75 13.3788V14.8788H11.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.25 14.8788H17.25" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15.75 14.8788V11.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.75 10.3788H12.75V11.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23.25 10.3788V11.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23.25 14.1288V14.8788" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18.75 10.3788V11.8788H20.25V14.1288" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1315_3983">
+                                <rect width="24" height="24" fill="white" transform="translate(0 0.628784)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Billets</span>
+                        <!--span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_client_index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1315_5635)">
+                                <path d="M24 14.375C24 14.8391 23.8156 15.2842 23.4874 15.6124C23.1592 15.9406 22.7141 16.125 22.25 16.125C21.7859 16.125 21.3408 15.9406 21.0126 15.6124C20.6844 15.2842 20.5 14.8391 20.5 14.375V11.375C20.5 10.9109 20.6844 10.4658 21.0126 10.1376C21.3408 9.80937 21.7859 9.625 22.25 9.625C22.7141 9.625 23.1592 9.80937 23.4874 10.1376C23.8156 10.4658 24 10.9109 24 11.375V14.375Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1.5 14.375C1.5 14.8391 1.68437 15.2842 2.01256 15.6124C2.34075 15.9406 2.78587 16.125 3.25 16.125C3.71413 16.125 4.15925 15.9406 4.48744 15.6124C4.81563 15.2842 5 14.8391 5 14.375V11.375C5 10.9109 4.81563 10.4658 4.48744 10.1376C4.15925 9.80937 3.71413 9.625 3.25 9.625C2.78587 9.625 2.34075 9.80937 2.01256 10.1376C1.68437 10.4658 1.5 10.9109 1.5 11.375V14.375Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20.5 12.745V8.875C20.4921 6.822 19.673 4.85535 18.2213 3.40365C16.7697 1.95195 14.803 1.1329 12.75 1.125C10.697 1.1329 8.73035 1.95195 7.27865 3.40365C5.82695 4.85535 5.0079 6.822 5 8.875V12.745" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8.25 11.625C8.25 12.8185 8.72411 13.9631 9.56802 14.807C10.4119 15.6509 11.5565 16.125 12.75 16.125C13.9435 16.125 15.0881 15.6509 15.932 14.807C16.7759 13.9631 17.25 12.8185 17.25 11.625C17.25 10.4315 16.7759 9.28693 15.932 8.44302C15.0881 7.59911 13.9435 7.125 12.75 7.125C11.5565 7.125 10.4119 7.59911 9.56802 8.44302C8.72411 9.28693 8.25 10.4315 8.25 11.625Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19.12 23.625C18.6526 22.3093 17.7893 21.1707 16.6487 20.3654C15.5082 19.5602 14.1462 19.1279 12.75 19.1279C11.3538 19.1279 9.99186 19.5602 8.85126 20.3654C7.71066 21.1707 6.84738 22.3093 6.38 23.625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1315_5635">
+                                <rect width="24" height="24" fill="white" transform="translate(0.75 0.375)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Clients</span>
+                        <!--span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1315_4129)">
+                                <path d="M18.936 23.8788H5.06401C4.73909 23.8728 4.42571 23.7573 4.17468 23.5509C3.92365 23.3445 3.74969 23.0594 3.68101 22.7418L1.54301 13.7418C1.48595 13.5263 1.47816 13.3007 1.52023 13.0818C1.56229 12.8629 1.65313 12.6563 1.786 12.4773C1.91887 12.2984 2.09035 12.1516 2.28771 12.048C2.48507 11.9444 2.70324 11.8865 2.92601 11.8788H21.074C21.2967 11.8867 21.5148 11.9447 21.712 12.0483C21.9093 12.152 22.0807 12.2988 22.2135 12.4777C22.3464 12.6566 22.4372 12.8632 22.4794 13.082C22.5215 13.3008 22.5139 13.5263 22.457 13.7418L20.319 22.7418C20.2503 23.0594 20.0764 23.3445 19.8253 23.5509C19.5743 23.7573 19.2609 23.8728 18.936 23.8788Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 11.8788L1.5 5.87878" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 11.8788L22.5 5.87878" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.5 15.6288V20.1288" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 15.6288V20.1288" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.5 15.6288V20.1288" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 1.37878V9.12878" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 9.12878L15.75 5.37878" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 9.12878L8.25 5.37878" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1315_4129">
+                                <rect width="24" height="24" fill="white" transform="translate(0 0.628784)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Achat</span>
+                        <!--span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span-->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </aside>
+
+            <div class="sm:ml-64">
+                <div class="relative overflow-hidden w-full min-h-[70px] bg-blue-500"></div>
+            </div>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
